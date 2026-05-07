@@ -113,7 +113,7 @@ body {
 .input-group input:focus,
 .input-group select:focus {
     border-color: var(--focus);
-    background: #fff;
+    background: #ffff;
     box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.26), var(--shadow-sm);
     transform: translateY(-1px);
 }
