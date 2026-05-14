@@ -1,0 +1,10 @@
+# Environment — never commit secrets
+DATA/.env
+DATA/uploads/
+
+# Dependencies
+DATA/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
