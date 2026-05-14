@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos — FactuLogin</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="has-sidebar page-transition">
+
+<nav class="sidebar" aria-label="Navegación principal">
+    <span class="sidebar-logo">FactuLogin</span>
+    <a href="menu.html"      class="sidebar-link"><i class="fa-solid fa-house" aria-hidden="true"></i><span class="sidebar-label">Inicio</span></a>
+    <a href="clientes.html"  class="sidebar-link"><i class="fa-solid fa-users" aria-hidden="true"></i><span class="sidebar-label">Clientes</span></a>
+    <a href="empresas.html"  class="sidebar-link"><i class="fa-solid fa-building" aria-hidden="true"></i><span class="sidebar-label">Empresas</span></a>
+    <a href="productos.html" class="sidebar-link"><i class="fa-solid fa-box" aria-hidden="true"></i><span class="sidebar-label">Productos</span></a>
+    <a href="pedidos.html"   class="sidebar-link active"><i class="fa-solid fa-receipt" aria-hidden="true"></i><span class="sidebar-label">Pedidos</span></a>
+</nav>
+
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+<a href="menu.html" class="back-menu-btn">← Menú</a>
+
+<div class="container form-centered">
+    <div class="form">
+        <h2>Pedidos</h2>
+
+        <div id="pedido-error" class="error-msg" style="display:none;" role="alert"></div>
+        <div id="pedido-ok"    class="ok-msg"    style="display:none;" role="status"></div>
+
+        <div class="input-group">
+            <label for="clientePedido">Cliente</label>
+            <select id="clientePedido" aria-label="Seleccionar cliente">
+                <option value="">Seleccionar cliente</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="empresaPedido">Empresa</label>
+            <select id="empresaPedido" aria-label="Seleccionar empresa">
+                <option value="">Seleccionar empresa</option>
+            </select>
+        </div>
+
+        <hr style="margin:16px 0 8px;">
+        <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:8px;">
+            Agregar producto al pedido
+            <span style="font-size:.78rem;opacity:.7;">· 2.5% desc. por cada 10 unidades</span>
+        </p>
+
+        <div class="input-group">
+            <label for="productoPedido">Producto</label>
+            <select id="productoPedido" aria-label="Seleccionar producto">
+                <option value="">Seleccionar producto</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="cantidadItem">Cantidad</label>
+            <input type="number" id="cantidadItem" min="1" placeholder="Ej: 12" aria-label="Cantidad del producto">
+        </div>
+
+        <!-- Badge de descuento en tiempo real -->
+        <div class="descuento-row" aria-live="polite">
+            <span id="descuentoBadge" class="descuento-badge" style="display:none;">
+                <i class="fa-solid fa-tag" aria-hidden="true"></i>
+                <span id="descuentoTexto"></span>
+            </span>
+        </div>
+
+        <button id="agregarBtn">
+            <i class="fa-solid fa-plus" aria-hidden="true" style="margin-right:6px;"></i>
+            Agregar al pedido
+        </button>
+
+        <hr style="margin:20px 0;">
+
+        <table aria-label="Detalle del pedido">
+            <thead>
+                <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cant.</th>
+                    <th scope="col">Precio unit.</th>
+                    <th scope="col">Desc.</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col"><span class="sr-only">Acciones</span></th>
+                </tr>
+            </thead>
+            <tbody id="detalleBody"></tbody>
+        </table>
+        <p id="detalleEmpty" class="link" aria-live="polite">Aún no hay productos en el pedido</p>
+
+        <h3 id="totalLabel" style="margin-top:15px;text-align:right;" aria-live="polite">Total: $0.00</h3>
+
+        <button id="generarBtn" style="margin-top:10px;">
+            <i class="fa-solid fa-receipt" aria-hidden="true" style="margin-right:6px;"></i>
+            Generar pedido
+        </button>
+    </div>
+</div>
+
+<script src="js/modules/utils.js"   defer></script>
+<script src="js/modules/pedidos.js" defer></script>
+</body>
+</html>

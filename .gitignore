@@ -1,10 +1,12 @@
-# Environment — never commit secrets
-DATA/.env
-DATA/uploads/
-
-# Dependencies
-DATA/node_modules/
-
-# OS
+.env
+.env.local
+node_modules/
+uploads/
+logs/
+*.log
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
+dist/
+build/
